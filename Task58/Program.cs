@@ -28,12 +28,13 @@ int[,] FillArray(int[,] array, int min, int max)
 //
 void PrintArray(int[,] array)
 {
-    for (int i = 0; i < array.GetLength(0); i++, Console.WriteLine()) 
+    for (int i = 0; i < array.GetLength(0); i++) 
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
             Console.Write($"{array[i, j],3}");
         }
+    Console.WriteLine();
     }    
 }
 //умножение массивов(матрица)
@@ -47,7 +48,6 @@ int[,] MultiplicationMatrix(int[,] matrix1, int[,] matrix2)
             newmatrix[i, j] = 0;
             for (var k = 0; k < matrix2.GetLength(0); k++)
             {
-                
                 newmatrix[i, j] += matrix1[i, k] * matrix2[k, j];
             }
         }
@@ -57,12 +57,13 @@ int[,] MultiplicationMatrix(int[,] matrix1, int[,] matrix2)
 //
 int[,] matrix1 = CreateArray(2, 2);
 int[,] matrix2 = CreateArray(2, 2);
-matrix1 = FillArray(matrix1, 0, 10);
-matrix2 = FillArray(matrix2, 0, 10);
+matrix1 = FillArray(matrix1, 1, 9);
+matrix2 = FillArray(matrix2, 1, 9);
 PrintArray(matrix1);
 Console.WriteLine();
 PrintArray(matrix2);
 Console.WriteLine();
+
 Console.WriteLine("Результирующая матрица: ");
 int[,] newmatrix = MultiplicationMatrix(matrix1, matrix2);
 PrintArray(newmatrix);
