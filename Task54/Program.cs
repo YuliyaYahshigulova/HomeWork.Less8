@@ -31,12 +31,13 @@ int[,] FillArray(int[,] array, int min, int max)
 // 
 void PrintArray(int[,] array)
 {
-    for (int i = 0; i < array.GetLength(0); i++, Console.WriteLine())
+    for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            Console.Write(array[i, j] + "\t");
+            Console.Write($"{array[i, j],5}");
         }
+    Console.WriteLine();  
     }    
 }
 //
@@ -66,13 +67,13 @@ int n = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine("Введите количество столбцов: ");
 int m = Convert.ToInt32(Console.ReadLine());
+
 Console.WriteLine("Заданный массив: ");
-
 int[,] array = CreateArray(n, m);
-
-array = FillArray(array, 0, 200);
+array = FillArray(array, 1, 199);
 PrintArray(array);
 Console.WriteLine();
+
 array = SortArray(array);
 Console.WriteLine("Отсортированный массив: ");
 PrintArray(array);
